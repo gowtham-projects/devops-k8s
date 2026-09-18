@@ -2,7 +2,7 @@ FROM python:3.12-alpine
 
 WORKDIR /app
 
-RUN useradd --create-home --shell /usr/sbin/nologin appuser
+RUN adduser -D -H -s /sbin/nologin appuser
 
 COPY requirements.txt .
 
@@ -17,4 +17,3 @@ USER appuser
 EXPOSE 5000
 
 CMD ["python", "app.py"]
-
